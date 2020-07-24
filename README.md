@@ -1,42 +1,56 @@
 [![DanThePutzer](https://circleci.com/gh/DanThePutzer/kuber.svg?style=svg)](https://github.com/DanThePutzer/kuber/tree/master)
 
-## Project Overview
+# kuber
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+The repository showcases how to operationalize a machine learning microservice API with **Docker** and deploy it at scale using **Kubernetes**. The application consists of a pre-trained machine learning model built on `sklearn` and geared towards predicting house prices in the city of Boston. The focus of this project is on said operationalization and deployment. Therefore, the actual application being deployed has been provided by a third party.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+![Container](https://user-images.githubusercontent.com/25454503/88419845-2418d200-cde6-11ea-9413-64cde8b95a50.png)
 
-### Project Tasks
+### Before You Start
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+Before everything can be run on your local machine a few things need to be in place. Please make sure that **Docker** is installed and running locally. Download it for your system [here](https://www.docker.com/products/docker-desktop). Additionally you need to have **minikube** as well as **kubectl** configured in order to set up and run a local Kubernetes cluster. Learn more about [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+&nbsp;
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+### Setup
 
----
+A simple **Makefile** has been created to get you up and running quickly. Find a comprehensive list of the commands available through said **Makefile** below.
 
-## Setup the Environment
+| **Command**                | **Description**                          |
+|----------------------------|------------------------------------------|
+| make **setup**             | Create proper python venv                |
+| make **install**           | Install all necessary dependencies       |
+| make **validate-circleci** | Validate CircleCI configuration file     |
+| make **run-circleci**      | Run CircleCI locally to verify build     |
+| make **lint**              | Lint Docker container and Python scripts |
 
-* Create a virtualenv and activate it
-* Run `make install` to install the necessary dependencies
+&nbsp;
 
-### Running `app.py`
+### Helper Scripts
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+A variety of bash scripts are provided to streamline certain tasks related to **Docker** containers and **Kubernetes** clusters.
 
-### Kubernetes Steps
+| **Bash Script**        | **Description**                                                                            |
+|------------------------|--------------------------------------------------------------------------------------------|
+| **run_docker.sh**      | Builds and runs Docker container with port 80 exposed and forwarded to host port 8000      |
+| **upload_docker.sh**   | Authenticates with Docker Hub and uploads finished Docker container                        |
+| **run_kubernetes.sh**  | Runs Docker container on local Kubernetes cluster with port 80 forwarded to host port 8000 |
+| **make_prediction.sh** | Runs test prediction to validate if everything is up and running correctly                 |
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+
+&nbsp;
+
+### Important Files
+
+There are few other important files to consider when working with this repo. The table below gives a short overview.
+
+| **File**             | **Description**                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------|
+| **app.py**           | Contains the actual machine learning model to be operationalized                             |
+| **requirements.txt** | List of dependencies that need to be installed in container for the app to function properly |
+| **Dockerfile**       | Configures how the Docker container should be built                                          |
+
+&nbsp;
+
+![Daniel Putzer, 2020](https://i.ibb.co/LSxTsY3/dan.png "Daniel Putzer, 2020")  
+<https://danielputzer.com>
