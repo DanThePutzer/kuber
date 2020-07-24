@@ -12,8 +12,16 @@ setup:
 
 install:
 	# This should be run from inside a virtualenv
-	~/.kuber/bin/python -m pip install --upgrade pip && \
-	~/.kuber/bin/python -m pip install -r requirements.txt
+	python -m pip install --upgrade pip && \
+	python -m pip install -r requirements.txt
+
+validate-circleci-config:
+	# Validating config file in .circleci
+	circleci config validate
+
+run-circleci:
+	# Testing if everything checks out in simulated environment
+	circleci local execute
 
 test:
 	# Additional, optional, tests could go here
