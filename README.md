@@ -37,7 +37,6 @@ A variety of bash scripts are provided to streamline certain tasks related to **
 | **run_kubernetes.sh**  | Runs Docker container on local Kubernetes cluster with port 80 forwarded to host port 8000 |
 | **make_prediction.sh** | Runs test prediction to validate if everything is up and running correctly                 |
 
-
 &nbsp;
 
 ### Important Files
@@ -49,6 +48,12 @@ There are few other important files to consider when working with this repo. The
 | **app.py**           | Contains the actual machine learning model to be operationalized                             |
 | **requirements.txt** | List of dependencies that need to be installed in container for the app to function properly |
 | **Dockerfile**       | Configures how the Docker container should be built                                          |
+
+&nbsp;
+
+### Docker Hub
+
+The **Docker Hub** repository with the container created and deployed here can be found [here](https://hub.docker.com/repository/docker/danceladus/kuber).
 
 &nbsp;
 
