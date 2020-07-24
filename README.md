@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![DanThePutzer](https://circleci.com/gh/DanThePutzer/kuber.svg?style=svg)](https://github.com/DanThePutzer/kuber/tree/master)
 
 ## Project Overview
 
