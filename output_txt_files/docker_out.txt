@@ -1,3 +1,6 @@
+
+run_docker.sh Output:
+
 [2020-07-24 10:17:52,214] INFO in app: JSON payload: 
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
 [2020-07-24 10:17:52,227] INFO in app: Inference payload DataFrame: 
@@ -7,3 +10,12 @@
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
 172.17.0.1 - - [24/Jul/2020 10:17:52] "POST /predict HTTP/1.1" 200 -
+
+make_prediction.sh Output:
+
+Port: 8000
+{
+  "prediction": [    
+    20.35373177134412
+  ]
+}
